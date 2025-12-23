@@ -1,4 +1,6 @@
 class Quote < ApplicationRecord
+  belongs_to :company
+
   validates :name, presence: true
 
   # later_to makes broadcasting part asynchronous using background jobs
