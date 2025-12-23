@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: %i[show edit update destroy]
 
   def index
-    @quotes = Quote.all.order(created_at: :desc)
+    @quotes = current_company.quotes.order(created_at: :desc)
   end
 
   def show; end
