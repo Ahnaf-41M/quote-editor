@@ -5,8 +5,7 @@ class QuotesController < ApplicationController
     @quotes = Quote.all.order(created_at: :desc)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @quote = Quote.new
@@ -17,7 +16,7 @@ class QuotesController < ApplicationController
 
     if @quote.save
       respond_to do |format|
-        format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
+        format.html { redirect_to quotes_path, notice: 'Quote was successfully created.' }
         format.turbo_stream
       end
     else
@@ -25,12 +24,11 @@ class QuotesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @quote.update(quote_params)
-      redirect_to quotes_path, notice: "Quote was successfully updated."
+      redirect_to quotes_path, notice: 'Quote was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +38,7 @@ class QuotesController < ApplicationController
     @quote.destroy
 
     respond_to do |format|
-      format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
+      format.html { redirect_to quotes_path, notice: 'Quote was successfully destroyed.' }
       format.turbo_stream
     end
   end
